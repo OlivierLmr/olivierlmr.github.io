@@ -65,12 +65,14 @@ function mouseMoveHandler(event) {
 // Attach event listeners to the document when the user presses E
 document.addEventListener("keydown", function (event) {
     // If the url contains localhost
-    if ((window.location.href.includes("localhost") || window.location.href.includes("127.0.0.1")) && event.key == "e") {
-        console.log("Editing mode activated.")
-        document.addEventListener("mousedown", mouseDownHandler);
-        document.addEventListener("mouseup", mouseUpHandler);
-        document.addEventListener("mousemove", mouseMoveHandler);
-    } else {
-        console.log("Editing mode disabled when not on localhost.")
+    if (event.key == "e") {
+        if (window.location.href.includes("localhost") || window.location.href.includes("127.0.0.1")) {
+            console.log("Editing mode activated.")
+            document.addEventListener("mousedown", mouseDownHandler);
+            document.addEventListener("mouseup", mouseUpHandler);
+            document.addEventListener("mousemove", mouseMoveHandler);
+        } else {
+            console.log("Editing mode disabled when not on localhost.")
+        }
     }
 });

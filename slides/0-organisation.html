@@ -15,11 +15,12 @@
   <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
   <link rel="stylesheet" href="./style.css">
 
-  <script src="edit.js"></script>
-  <script src="print.js"></script>
+  <script src="/common/edit.js"></script>
+  <script src="/common/print.js"></script>
 
   <style>
-    .sl-block, .editable {
+    .sl-block,
+    .editable {
       position: absolute;
     }
   </style>
@@ -32,38 +33,19 @@
     <div class="slides">
       <section data-markdown>
         <textarea data-template>
-            # Test
-            This is a test 
-            - test2
-            - test3
-            ```js
-            js.module("hlo")
-            ```
-          </textarea>
+          # Systèmes Distribués et Répartis
+
+          Olivier Lemer
+        </textarea>
       </section>
-      <section data-auto-animate>
-        <div class="editable" style="width: 50px; height: 50px; background-color: black; left: 82px; top: -172px;"></div>
-      </section>
-      <section data-auto-animate>
-      </section>
-      <section>
-        <h2><i class="fas fa-users"></i> Staff</h2>
-        <p>Bertil Chapuis (Professeur)</p>
-        <p>James Smith (Assistant)</p>
-        <p>Stefan Teofanovic (Assistant)</p>
-      </section>
-      <section data-auto-animate>
-        <h2><i class="fas fa-users"></i> Staff</h2>
-        <h2><i class="fas fa-graduation-cap"></i> Objectif</h2>
-        <p>Comprendre et connaitre les fondamentaux du Web en tant que plateforme pour mieux appréhender les
-          libraries et technologies qui le composent.</p>
-      </section>
-      <section>
-        <h2><i class="fas fa-graduation-cap"></i> Prérequis</h2>
-        <ul>
-          <li>Programmation orientée objets</li>
-          <li>programmation réseau (sockets, utilisation de TCP et UDP, utilisation de HTTP)</li>
-        </ul>
+      <section data-markdown>
+        <textarea data-template>
+          <div class="editable" style="width: 50px; height: 50px; background: black; left: -102.107px; top: -15.127px;"></div>
+          <div class="editable" style="width: 50px; height: 50px; background: black; left: -3.78174px; top: -220.601px;"></div>
+          <div class="editable" style="width: 50px; height: 50px; background: black; left: 182.784px; top: 141.185px;"></div>
+          <div class="editable" style="width: 50px; height: 50px; background: black; left: 427.336px; top: 0px;"></div>
+          <div class="editable" style="width: 50px; height: 50px; background: black; left: 192.869px; top: -104.628px;"></div>
+        </textarea>
       </section>
       <section>
         <h4><i class="fas fa-calendar-alt"></i> Programme (indicatif)</h4>
@@ -288,7 +270,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
-  <script src="./script.js" type="module"></script>
+  <script src="/common/script.js" type="module"></script>
 
 </body>
 

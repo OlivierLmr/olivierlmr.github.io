@@ -21,9 +21,9 @@ let EvalJavaScript = {
 };
 
 Reveal.initialize({
+    width: 960,
+height: 700,
     controls: true,
-    width: 1200,
-    height: 700,
     margin: 0.1,
     minScale: 0.2,
     maxScale: 2.0,
@@ -32,7 +32,7 @@ Reveal.initialize({
     history: true,
     keyboard: true,
     overview: true,
-    center: true,
+    center: false,
     touch: true,
     loop: false,
     rtl: false,
