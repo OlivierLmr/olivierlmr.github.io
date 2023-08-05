@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+        <title>Client/Server applications</title>
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.css" id="theme">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
+        
+        <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="./style.css">
+    
+        <script src="print.js"></script>
+    
+    </head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+                <section>
+                    <section data-background="#333333">
+                        <h2>Web</h2>
+                        <h1>Client-Server Applications</h1>
+                        <p>Bertil Chapuis</p>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## <i class="fas fa-tasks"></i> Overview of Today's Class
+                            - Client-Server Applications
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="#333333">
+                        <h2><i class="fab fa-js"></i> Client-Server Applications</h2>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-cogs"></i> Anatomy of a web application                            
+
+                            <img src="images/client-server.png" alt="client/server" style="width: 80%;" />
+
+                            https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview
+                        </textarea>
+                    </section>
+
+                    
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-cogs"></i> HTML Forms (Client-side)        
+
+                            HTML forms are the most common way to collect user input, send it to a server, and receive a response. The form itself is written in HTML, and the server's response is typically HTML as well.
+
+                            ```html
+                            <form action='/form.php' method='POST'>
+                                <label for="email">E-mail:</label>
+                                <input type="email" id="email" name="email" />
+                                <label>Title:
+                                    <input type="text" id="title" name="title" />
+                                </label>
+                                <label for="content">Content:</label>
+                                <textarea id="content" name="content" />
+                                <button type="submit">Save</button>
+                            </form>
+                            ```
+
+                            - The form's action attribute defines where the form data is sent.
+                            - The form's method attribute defines how the data is sent.
+                            - The form's input elements define the data fields the form collects.
+                            - The form's button element defines the button the user clicks to send the data to the server.
+                            
+                            https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form
+                        
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-cogs"></i> HTML Forms (Server-side)        
+
+                            The server-side code that processes the form data is typically written in a server-side language such as PHP, Python, or Java. 
+                         
+                            ```php
+                            <?php
+                                $email = $_POST['email'];
+                                $title = $_POST['title'];
+                                $content = $_POST['content'];
+                                
+                                // Do something with the data...
+                                
+                                echo "Thank you for your message!";
+                            ?>
+                            ```
+
+                            Here, the server-side code retrieves the data from the form using the $_POST array. 
+                            The data is then processed and a response is sent back to the client.
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.8em;">
+                        <textarea data-template>
+                            ## <i class="fab fa-js"></i> ExpressJS (Server-side)
+
+                            Today, Javascript is a popular choice for server-side programming.
+
+                            Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web applications.
+
+                            Web frameworks usually come with:
+                            - A **middleware** layer that helps at customizing the behavior of the framework.
+                            - A **router** that helps at mapping HTTP requests to the appropriate code.
+                            - A **template engine** that helps at generating HTML pages.
+
+                            https://expressjs.com/
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-hand-paper"></i> ExpressJS (Server-side)
+
+                            ```js
+                            const express = require('express')
+                            const app = express()
+                            const port = 3000
+
+                            // Serve static files
+                            app.use(express.static("public"));
+
+                            // Define a Middleware
+                            app.use('/form/', (req, res, next) => {
+                                console.log(req);
+                                next();
+                            });
+
+                            // Handle get requests
+                            app.get('/form/', (req, res) => {
+                                res.send(req.params);
+                            });
+
+                            // Handle post requests
+                            app.post('/form/', (req, res) => {
+                                res.send(req.params)
+                            });
+
+                            app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+                            ```
+
+                            https://github.com/web-classroom/example-express
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-hand-paper"></i>  Multi-page applications (MPA)
+
+                            Multi-page applications (MPA) are the most common type of web applications.
+                            They are based on the client-server model and are typically written in a server-side language such as PHP, Python, or Java.
+
+                            Multi-page applications have many advantages. They are easy to develop, maintain, scale, test, secure, reference, deploy, and debug.
+                            
+                            However, they have few disadvantages as well. They are not very user-friendly, they are not very responsive, and they are not very interactive.
+                            
+                            When in doubt, start with a multi-page application. 
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-hand-paper"></i> MVC Pattern
+
+                            The Model-View-Controller (MVC) pattern is a software design pattern commonly used for developing user interfaces that divides the related program logic into three interconnected elements. 
+
+                            The Model is the data, the View is the user interface, and the Controller is the glue between the two.
+
+                            The MVC pattern decouples these major components allowing for code reuse and parallel development.
+
+                            It is an **architectural** pattern and not a design pattern. It is used to organize the code in a multi-page application.
+
+                        </textarea>
+                    </section>
+
+                    <section data-markdown style="font-size: 0.6em;">
+                        <textarea data-template>
+                            ## <i class="fas fa-hand-paper"></i> MPA and MVC in the real world
+
+                            **Stackoverflow** is a multi-page application that uses the MVC pattern.
+
+                            **Hacker News** is a multi-page application that uses the MVC pattern.
+                            
+                            **Facebook** and **Reddit** started as a multi-page application that used the MVC pattern.
+                            
+                            When exposed to trendy Web technologies, do a quick sanity check on BuildWith.
+
+                            https://trends.builtwith.com/
+
+                        </textarea>
+                    </section>
+
+                </section>
+                
+            </div>
+		</div>
+        
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+        <script src="./script.js" type="module"></script>
+
+	</body>
+</html>
