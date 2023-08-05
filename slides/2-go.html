@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <style>
+    </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Organisation</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
+
+    <link rel="stylesheet" href="./fontawesome-6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./slides_styles.css">
+
+    <script src="/common/edit.js"></script>
+    <script src="/common/print.js"></script>
+
+    <style>
+        .sl-block,
+        .editable {
+            position: absolute;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="theme-font-montserrat theme-color-white-blue" style="width: 100%; height: 100%;">
+        <div class="reveal">
+            <div class="slides">
+                <section data-markdown>
+                    <textarea data-template>
+                        <div class="centered">
+                            
+                        ## Systèmes Distribués et Répartis
+                        # Go
+                        Olivier Lemer
+
+                        </div>
+                    </textarea>
+                </section>
+
+                <section data-markdown>
+                    <textarea data-template>
+
+                    ## Différences avec Java
+
+                    <div class="columnLayout">
+                        
+                    <div class="column1">
+
+                    - test de type à la compilationm
+                        
+                    </div>
+
+                    </div>
+                        
+                    ## CSS - Spécificité
+          
+                    <div class="hspace"></div>
+                    <div class="hspace"></div>
+          
+                    ### **Question** : de quelle couleur sera le texte ?
+          
+                    <div>
+                    
+                    ```css
+                    #form + div .name {
+                      color: red;
+                    }
+          
+                    #form + div > p {
+                      color: blue;
+                    }
+                    ```
+                    
+                    </div> <!-- .element: class="fragment" data-fragment-index="1" -->
+                    
+                    <div> <!-- .element: class="fragment" data-fragment-index="2" -->
+          
+                    `(1, 1, 1)` gagne contre `(1, 0, 2)`, le texte sera rouge.
+                    
+                    </div>
+          
+                    <div class="hspace"></div>
+                    <div class="hspace"></div>
+                    
+                    <div>
+          
+                    ```css
+                    #myElement {
+                        color: green;
+                    }
+                    
+                    .bodyClass .sectionClass .parentClass [id="myElement"] {
+                        color: yellow;
+                    }
+                    ```
+          
+                    </div>  <!-- .element: class="fragment" data-fragment-index="3" -->
+          
+                    <div>
+                    
+                    `(1, 0, 0)` gagne contre `(0, 4, 0)`, le texte sera vert.
+          
+                    </div>  <!-- .element: class="fragment" data-fragment-index="4" -->
+          
+                    </textarea>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+    <script src="/common/script.js" type="module"></script>
+
+</body>
+
+</html>
