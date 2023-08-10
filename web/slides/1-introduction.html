@@ -87,12 +87,36 @@
 
                         <img alt="Networking" src="images/network_dns.svg" style="width: 65%;" />
 
+                        Uses TCP for zone transfer and UDP for name queries.
+
                         Notes:
 
                         The <b>Domain Name System (DNS)</b> is a hierarchical and decentralized naming system (phone book) for computers connected to the Internet. 
                         It translates domain names to IP addresses needed for locating and identifying computers.
 
-                        The DNS protocol uses <b>TCP</b> for Zone transfer and <b>UDP</b> for name queries.
+                        A DNS request happens roughly as follows:
+                        - Your computer makes a request to translate a domain name into an IP address that it will then be able to use to retrieve resources.
+                        - That request goes to a DNS resolver, which will handle the conseptually "recursive" retrieval of the information.
+                        - The DNS resolver essentially asks DNS servers for information recursively, starting from the most generic one to the most specific one, each giving information about where to find more specific information.
+                        - The first server to be contacted is the root DNS server, which only knows about Top Level Domain (TLD) servers. Each TLD server is responsible for the top-level part of the domain name, i.e. `.com`, `.net` etc. The root server thus answers the resolver with information about where to find the TLD server that will know more about the requested address. If the requested address is `www.example.com`, it will thus redirect to the `.com` TLD.
+                        - The resolver receives that message telling him who to ask next. It does so and receives another answer, again for who to ask next. It does that recursively until it reaches a Name Server knowing the IP address of the full requested domain name.
+                        - The resolver sends that address to your computer, which can now use that address to send a request for resources on that server.
+
+                        Note that each involved machine (Root, TLD, Name
+                        servers, DNS resolver, even your computer) can cache
+                        information. For instance, the resolver may remember
+                        where to find a TLD server responsible for the `.com`
+                        domain, and ask that one directly.
+
+                        #### Replication
+
+                        The servers listed above are rarely alone: for example,
+                        there are multiple root servers, and multiple TLD
+                        servers. Even name servers, at the bottom of the chain,
+                        are often replicated in more than one, in order to
+                        ensure redundancy and fault tolerance. DNS Zone Transfer
+                        is what is used to ensure that these replication servers
+                        all hold consistent data.
                     </textarea>
                 </section>
 
